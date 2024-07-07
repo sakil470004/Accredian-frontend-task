@@ -36,7 +36,7 @@ const ReferralModal = ({ handleModal }) => {
     <div className="fixed  inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white  p-6 rounded shadow-lg min-w-[350px] max-w-[400px]">
         <h2 className="text-2xl mb-4">Referral Form</h2>
-        <ReferralForm />
+        <ReferralForm handleModal={handleModal}/>
         <button
           onClick={handleModal}
           className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -48,7 +48,7 @@ const ReferralModal = ({ handleModal }) => {
   );
 };
 // from for referral
-const ReferralForm = () => {
+const ReferralForm = ({handleModal}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -61,7 +61,15 @@ const ReferralForm = () => {
       },
       body:JSON.stringify(data)
     
-    }).then(res=>res.json()).then(dt=>toast.success(dt.message)).catch(err=>toast.error(err.message))
+    }).then(res=>res.json()).then(dt=>{
+      toast.success(dt.message)
+    // reset form
+    e.target.reset();
+    handleModal();  // close modal
+    }
+  
+  
+  ).catch(err=>toast.error(err.message))
     
 
   };
