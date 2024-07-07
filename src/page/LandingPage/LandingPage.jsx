@@ -61,8 +61,8 @@ const ReferralForm = () => {
       },
       body:JSON.stringify(data)
     
-    }).then(res=>res.json()).then(dt=>console.log(dt))
-    toast.success('Successfully Sent Email')
+    }).then(res=>res.json()).then(dt=>toast.success(dt.message)).catch(err=>toast.error(err.message))
+    
 
   };
   return (
