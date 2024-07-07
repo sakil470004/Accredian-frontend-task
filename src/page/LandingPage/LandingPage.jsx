@@ -15,7 +15,7 @@ const LandingPage = () => {
         className="h-screen w-screen   flex flex-col items-center justify-center  bg-cover blur-[2px]"
         style={{ backgroundImage: `url(${img})`, backgroundPosition: "center" }}
       ></div>
-      <div className="absolute top-1/2 left-1/2 translate-x-1/2 -translate-y-1/2">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 className="text-4xl font-bold mb-6 text-gray-50 shadow-md">
           Refer & Earn
         </h1>
