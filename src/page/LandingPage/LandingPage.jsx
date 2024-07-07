@@ -54,7 +54,7 @@ const ReferralForm = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
-    fetch("http://localhost:5000/addRefer",{
+    fetch("https://accredian-backend-task-bpwb.onrender.com/addRefer",{
       method:'POST',
       headers:{
         'Content-Type':'application/json'
